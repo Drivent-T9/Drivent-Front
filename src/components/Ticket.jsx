@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import useEnrollment from '../hooks/api/useEnrollment';
 import Guest from './GuestComponent';
 
 export default function Ticket() {
+  const [buttonType, setButtonType] = useState(null)
   const { enrollment } = useEnrollment();
 
   return (
@@ -12,18 +14,29 @@ export default function Ticket() {
       <>
       <Subtitle>Primeiro, escolha sua modalidade de ingresso</Subtitle>
         <Options>
-          <Button>
+          <Button
+            buttonType={buttonType === true}
+            onClick={() => {
+              setButtonType(true)
+            }}
+          >
             <span>Presencial</span>
             <p>R$250</p>
           </Button>
 
-          <Button>
+          <Button
+            buttonType={buttonType === false}
+            onClick={() => {
+              setButtonType(false)
+            }}
+          >
             <span>Online</span>
             <p>R$100</p>
           </Button>
         </Options>
       </>
       }
+
     </>
   );
 }
@@ -57,7 +70,11 @@ const Button = styled.button`
   box-sizing: border-box;
   height: 145px;
   width: 145px;
-  background-color: white;
+  background-color: ${({ buttonType }) => buttonType ? '#FFEED2' : '#FFFFFF'};
   border: 1px solid #CECECE;
   border-radius: 20px;
+
+  :hover {
+    cursor: pointer;
+  }
 `
