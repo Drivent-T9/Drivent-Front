@@ -28,10 +28,12 @@ export default function RoomsForm({ hotelId }) {
             <StyledButtonGrid>
                 {
                     rooms.map((r) => {
+                        const selected = clickedButton === r.id ? 1 : 0;
+                        const available = r.capacity - r._count.Booking - selected;
                         return (
-                            <Button key={r.id} variant="outlined" onClick={() => setClickedButton(r.id)} className={clickedButton === r.id ? "selected-button" : ""}>
+                            <Button key={r.id} variant="outlined" onClick={() => setClickedButton(r.id)} className={clickedButton === r.id ? "selected-button" : ""} disabled={available === 0}>
                                 {r.name}
-                                <RoomCapacity available={r.capacity} occupied={0} />
+                                <RoomCapacity available={available} occupied={r._count.Booking} selected={selected} />
                             </Button>
                         )
                     })
@@ -61,6 +63,9 @@ const StyledButtonGrid = styled.div`
         font-weight: 700;
 
         justify-content: space-between;
+        :disabled{
+            background-color: #E9E9E9;
+        }
     }
 
     div{

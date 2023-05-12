@@ -1,8 +1,7 @@
 import { PersonOutlineOutlined, Person } from '@mui/icons-material';
+import styled from 'styled-components';
 
-export default function RoomCapacity({ available, occupied }) {
-    const slots = Array(available + occupied);
-
+export default function RoomCapacity({ available, occupied, selected }) {
     return (
         <div>
             {
@@ -14,7 +13,17 @@ export default function RoomCapacity({ available, occupied }) {
                 [...Array(occupied)].map((x, i) => {
                     return <Person key={i} />
                 })
+
+            }
+            {
+                [...Array(selected)].map((x, i) => {
+                    return <SelectedIcon key={i} />
+                })
             }
         </div>
     )
 }
+
+const SelectedIcon = styled(Person)`
+    color: #FF4791;
+`;
