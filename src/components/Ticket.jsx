@@ -4,9 +4,10 @@ import useEnrollment from '../hooks/api/useEnrollment';
 import Guest from './GuestComponent';
 
 export default function Ticket() {
-  const [buttonType, setButtonType] = useState(null)
-  const [hotelType, setHotelType] = useState(null)
+  const [buttonType, setButtonType] = useState(null);
+  const [hotelType, setHotelType] = useState(null);
   const [mode, setMode] = useState(null);
+  const [remoteOrder, setRemoteOrder] = useState(null);
   const { enrollment } = useEnrollment();
 
   return (
@@ -21,6 +22,7 @@ export default function Ticket() {
             onClick={() => {
               setButtonType(true)
               setMode(true)
+              setRemoteOrder(false)
             }}
           >
             <span>Presencial</span>
@@ -32,12 +34,21 @@ export default function Ticket() {
             onClick={() => {
               setButtonType(false)
               setMode(false)
+              setRemoteOrder(true)
             }}
           >
             <span>Online</span>
             <p>R$ 100</p>
           </Button>
         </Options>
+
+      {remoteOrder ? 
+        <>
+          <Subtitle>Fechado! O total ficou em R$ 100. Agora é só confirmar:</Subtitle>
+          <FinishTicket>RESERVAR INGRESSO</FinishTicket>
+        </>
+      : <></>
+      }
 
       {mode ?
         <>
@@ -110,4 +121,11 @@ const Button = styled.button`
   :hover {
     cursor: pointer;
   }
+`
+
+const FinishTicket = styled.button`
+  width: 162px;
+  height: 37px;
+  border-radius: 10px;
+  border: 1px solid #E0E0E0;
 `
