@@ -8,3 +8,7 @@
 body {
   font-family: "Lexend Deca", sans-serif;
 }
+
+.selected-button{
+  background-color: #ffeed2 !important;
+}
