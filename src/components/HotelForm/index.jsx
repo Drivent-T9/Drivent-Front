@@ -1,46 +1,27 @@
 import styled from 'styled-components';
 import RoomsForm from './roomsForm';
-import { Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import useHotel from '../../hooks/api/useHotel';
+import HotelContainer from './hotelContainer';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function HotelForm() {
     const { hotels } = useHotel();
-    // const rooms = [
-    //     {
-    //         name: 101,
-    //         capacity: 3,
-    //     },
-    //     {
-    //         name: 102,
-    //         capacity: 3,
-    //     },
-    //     {
-    //         name: 103,
-    //         capacity: 3,
-    //     },
-    //     {
-    //         name: 104,
-    //         capacity: 3,
-    //     },
-    //     {
-    //         name: 105,
-    //         capacity: 1,
-    //     },
-    //     {
-    //         name: 106,
-    //         capacity: 2,
-    //     },
-    //     {
-    //         name: 107,
-    //         capacity: 2,
-    //     },
+    const [selectedHotel, setSelectedHotel] = useState(null);
+    const [selectedRoom, setSelectedRoom] = useState(null);
 
-    // ]
     return (
         <>
             <StyledTypography variant='h4'>Escolha de hotel e quarto</StyledTypography>
             {
-                hotels ? <RoomsForm hotelId={hotels[0].id} /> : null
+                hotels ? <HotelContainer hotels={hotels} selectedHotel={selectedHotel} setSelectedHotel={(data) => setSelectedHotel(data)} /> : null
+            }
+            {
+                selectedHotel ? <RoomsForm hotelId={selectedHotel} selectedRoom={selectedRoom} setSelectedRoom={(data) => setSelectedRoom(data)} /> : null
+            }
+            {
+                selectedRoom ? <Button variant='contained' onClick={() => { setSelectedHotel(null); setSelectedRoom(null); }}>RESERVAR QUARTO</Button> : null
             }
 
         </>
@@ -48,5 +29,6 @@ export default function HotelForm() {
 }
 
 const StyledTypography = styled(Typography)`
-  margin-bottom: 20px!important;
+    font-family: 'Roboto';
+    margin-bottom: 20px!important;
 `;

@@ -5,10 +5,9 @@ import RoomCapacity from "./roomCapacity";
 import { useEffect } from "react";
 import { useRoom } from "../../hooks/api/useRoom";
 
-export default function RoomsForm({ hotelId }) {
+export default function RoomsForm({ hotelId, selectedRoom , setSelectedRoom }) {
     const { getRooms } = useRoom();
     const [rooms, setRooms] = useState([]);
-    const [clickedButton, setClickedButton] = useState(null);
 
     useEffect(async () => {
         try
@@ -19,7 +18,7 @@ export default function RoomsForm({ hotelId }) {
         {
             console.log(error);
         }
-    }, []);
+    }, [hotelId]);
 
     if (rooms.length === 0) return null;
     return (
@@ -28,10 +27,10 @@ export default function RoomsForm({ hotelId }) {
             <StyledButtonGrid>
                 {
                     rooms.map((r) => {
-                        const selected = clickedButton === r.id ? 1 : 0;
+                        const selected = selectedRoom === r.id ? 1 : 0;
                         const available = r.capacity - r._count.Booking - selected;
                         return (
-                            <Button key={r.id} variant="outlined" onClick={() => setClickedButton(r.id)} className={clickedButton === r.id ? "selected-button" : ""} disabled={available === 0}>
+                            <Button key={r.id} variant="outlined" onClick={() => setSelectedRoom(r.id)} className={selectedRoom === r.id ? "selected-button" : ""} disabled={available === 0}>
                                 {r.name}
                                 <RoomCapacity available={available} occupied={r._count.Booking} selected={selected} />
                             </Button>
@@ -47,6 +46,7 @@ const StyledTypography = styled(Typography)`
     margin-top: 52px !important;
     margin-bottom: 30px !important;
     color: #8e8e8e;
+    font-size: 20px !important;
 `;
 
 const StyledButtonGrid = styled.div`
@@ -54,6 +54,7 @@ const StyledButtonGrid = styled.div`
     flex-wrap: wrap;
     row-gap: 8px;
     column-gap: 17px;
+    margin-bottom: 46px;
 
     button{
         width: 190px;
