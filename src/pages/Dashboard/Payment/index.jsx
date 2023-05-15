@@ -14,7 +14,7 @@ export default function Payment() {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [ticket]);
 
-  return ticketCreated ? <PaymentForm /> : <Ticket setTicketCreated={(data) => setTicketCreated(data)} />;
+  return ticketCreated ? <PaymentForm/> : <Ticket setTicketCreated={(data) => setTicketCreated(data)} />;
 };
