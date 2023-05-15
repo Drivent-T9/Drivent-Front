@@ -6,20 +6,20 @@ import HotelContainer from './hotelContainer';
 import { useState } from 'react';
 import useTicket from '../../hooks/api/useTicket';
 import NotIncludesHotel from './notIncludeHotel';
+import usePayment from '../../hooks/api/usePayment';
 
 export default function HotelForm() {
     const { hotels } = useHotel();
     const [selectedHotel, setSelectedHotel] = useState(null);
     const [selectedRoom, setSelectedRoom] = useState(null);
     const { ticket } = useTicket();
+    const payment = usePayment();
+    console.log(payment);
 
     if (!ticket || !ticket?.TicketType.includesHotel) return <NotIncludesHotel />
 
     return (
         <>
-            {
-
-            }
             <StyledTypography variant='h4'>Escolha de hotel e quarto</StyledTypography>
             {
                 hotels ? <HotelContainer hotels={hotels} selectedHotel={selectedHotel} setSelectedHotel={(data) => setSelectedHotel(data)} /> : null
