@@ -46,7 +46,7 @@ export default function Ticket({setTicketCreated}) {
     try {
       await saveTicket(data);
       toast('Ticket reservado!');
-      setTicketCreated(true);
+      setTicketCreated(ticket);
     } catch (error) {
       // eslint-disable-next-line
       console.log(error);

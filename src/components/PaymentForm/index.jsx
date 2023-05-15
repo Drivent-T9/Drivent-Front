@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Cards from 'react-credit-cards-2';
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
 import {Pagamento, Header, SubTitle, Bubble, TicketInfo, TicketDetail, TicketPrice, Title, BySide, Form, Example, BigInput, MediumInput, MiniInput, Submit, Check, Confirmed, InputContainer} from './styled';
@@ -29,6 +29,7 @@ export default function PaymentForm() {
     setState((prev) => ({ ...prev, focus: event.target.name }));
   };
 
+  if (ticket === null) return null
 
   async function OnSubmit(event) {
     event.preventDefault();
@@ -54,13 +55,12 @@ export default function PaymentForm() {
     }
   }
 
-
-  if (show === true)
+  if (show === true && ticket.status === "RESERVED")
   {
     return (
       <>
       <Header>Ingresso e Pagamento</Header>
-        <SubTitle>Ingresso escolhido</SubTitle>
+        <Title>Ingresso escolhido</Title>
         <Bubble>
 
           <TicketInfo>
@@ -145,9 +145,22 @@ export default function PaymentForm() {
   {
     return (
       <Pagamento>
+
+        <Header>Ingresso e Pagamento</Header>
+        <Title>Ingresso escolhido</Title>
+        <Bubble>
+
+        <TicketInfo>
+          <TicketDetail>{ticket.TicketType.name}</TicketDetail>
+          <TicketPrice>R$ {ticket.TicketType.price}</TicketPrice>
+        </TicketInfo>
+
+        </Bubble>
+
         <Title>
           Pagamento
         </Title>
+
         <BySide>
           <Check>
             <BsCheckCircleFill/>

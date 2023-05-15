@@ -6,8 +6,8 @@ const Pagamento=styled.div`
 `;
 
 const Header = styled.h1`
+  margin-bottom: 37px;
   font-size: 34px;
-  font-family: Roboto;
   font-weight: 400;
   line-height: 39.84px;
   width: 100%;
