@@ -19,7 +19,6 @@ export default function PaymentForm() {
   const { savePayment } = usePayment();
 
   const { ticket } = useTicket();
-  console.log(ticket)
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
