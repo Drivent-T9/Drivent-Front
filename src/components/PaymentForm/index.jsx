@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Cards from 'react-credit-cards-2';
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
-import { Pagamento, Title, BySide, Form, Example, BigInput, MediumInput, MiniInput, Submit, InputContainer } from './styled';
+import {Pagamento, Title, BySide, Form, Example, BigInput, MediumInput, MiniInput, Submit, Check, Confirmed, InputContainer} from './styled';
 import usePayment from '../../hooks/api/usePayment';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import useTicket from '../../hooks/api/useTicket';
@@ -124,8 +124,14 @@ export default function PaymentForm() {
             FINALIZAR PAGAMENTO
           </Submit>
         </Form>
-
-
+        <BySide>
+          <Check>
+            <BsCheckCircleFill/>
+          </Check>
+          <Confirmed>
+            Pagamento confirmado!
+          </Confirmed>
+        </BySide>
       </Pagamento>
     );
   }
