@@ -5,6 +5,15 @@ const Pagamento=styled.div`
   flex-direction: column;
 `;
 
+const Header = styled.h1`
+  font-size: 34px;
+  font-family: Roboto;
+  font-weight: 400;
+  line-height: 39.84px;
+  width: 100%;
+  color: black;
+`;
+
 const Title = styled.div`
   font-weight: 400;
   font-size: 20px;
@@ -12,6 +21,49 @@ const Title = styled.div`
   color: #8E8E8E;
   margin-bottom: 20px;
 `;
+
+const SubTitle = styled.h2`
+  margin: 15px 0 10px 0;
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: 400;
+  line-height: 39.84px;
+  width: 100%;
+  color: gray;
+`
+
+const Bubble = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 290px;
+  height: 108px;
+  background-color: #FFEED2;
+  border-radius: 20px;
+  margin-bottom: 30px;
+`
+
+const TicketInfo = styled.div`
+  margin: auto;
+`
+
+const TicketDetail = styled.p`
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: center;
+  color: #454545;
+`
+
+const TicketPrice = styled.p`
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  color: #898989;
+`
 
 const BySide= styled.div`
   display: flex;
@@ -100,4 +152,4 @@ const Confirmed=styled.div`
     align-items: center;
 `;
 
-export {Pagamento, Title, BySide, Form, Example, InputContainer, BigInput, MediumInput, MiniInput, Submit, Check, Confirmed};
+export {Pagamento, Header, SubTitle, Bubble, TicketInfo, TicketDetail, TicketPrice, Title, BySide, Form, Example, InputContainer, BigInput, MediumInput, MiniInput, Submit, Check, Confirmed};
