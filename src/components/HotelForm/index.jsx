@@ -4,7 +4,6 @@ import { Button, Typography } from '@material-ui/core';
 import useHotel from '../../hooks/api/useHotel';
 import HotelContainer from './hotelContainer';
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 export default function HotelForm() {
     const { hotels } = useHotel();

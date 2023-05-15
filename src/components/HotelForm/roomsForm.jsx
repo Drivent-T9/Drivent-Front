@@ -12,6 +12,7 @@ export default function RoomsForm({ hotelId, selectedRoom , setSelectedRoom }) {
     useEffect(async () => {
         try
         {
+            setSelectedRoom(null);
             const hotel = await getRooms(hotelId);
             setRooms(hotel.Rooms);
         } catch (error)
