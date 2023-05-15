@@ -15,7 +15,6 @@ export default function HotelForm() {
     const [selectedRoom, setSelectedRoom] = useState(null);
     const { ticket } = useTicket();
     const payment = usePayment();
-    console.log(payment);
 
     if (!ticket || !ticket?.TicketType.includesHotel) return <NotIncludesHotel />
     if (ticket.status !== "PAID") return <TicketIsntPaid />
