@@ -30,6 +30,12 @@ const Example= styled.div`
   margin-bottom: 20px;
 `;
 
+const InputContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+`;
+
 const BigInput=styled.input`
   padding: 8px;
   color: #8E8E8E;
@@ -57,6 +63,7 @@ const MediumInput=styled.input`
 
 const MiniInput=styled.input`
   padding: 8px;
+  margin-top:20px;
   margin-bottom: 20px;
   color: #8E8E8E;
   border-radius: 5px;
@@ -87,9 +94,10 @@ const Check=styled.div`
     margin-right: 15px;
 `;
 
+
 const Confirmed=styled.div`
     display: flex;
     align-items: center;
 `;
 
-export {Pagamento, Title, BySide, Form, Example, BigInput, MediumInput, MiniInput, Submit, Check, Confirmed};
+export {Pagamento, Title, BySide, Form, Example, InputContainer, BigInput, MediumInput, MiniInput, Submit, Check, Confirmed};

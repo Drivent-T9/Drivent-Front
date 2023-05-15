@@ -5,9 +5,8 @@ import Guest from './GuestComponent';
 import useTicketTypes from '../hooks/api/useTicketTypes';
 import { toast } from 'react-toastify';
 import useSaveTicket from '../hooks/api/useSaveTicket';
-import { useNavigate } from 'react-router-dom';
 
-export default function Ticket() {
+export default function Ticket({setTicketCreated}) {
   const [buttonType, setButtonType] = useState(null);
   const [hotelType, setHotelType] = useState(null);
   const [includesHotel, setIncludesHotel] = useState(null);
@@ -18,7 +17,6 @@ export default function Ticket() {
   const { ticketTypes } = useTicketTypes();
   const [ticket, setTicket] = useState(null);
   const { saveTicket } = useSaveTicket();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (ticketTypes) {
@@ -48,7 +46,7 @@ export default function Ticket() {
     try {
       await saveTicket(data);
       toast('Ticket reservado!');
-      navigate('/dashboard/payment/credit-card');
+      setTicketCreated(true);
     } catch (error) {
       // eslint-disable-next-line
       console.log(error);
