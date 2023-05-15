@@ -31,4 +31,5 @@ const StyledContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     column-gap: 19px;
+    row-gap: 20px;
 `;
