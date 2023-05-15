@@ -4,6 +4,9 @@ import Splash from '../components/Splash';
 
 import useEvent from '../hooks/api/useEvent';
 
+
+
+
 const EventInfoContext = createContext();
 export default EventInfoContext;
 
