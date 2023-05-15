@@ -7,6 +7,7 @@ import { useState } from 'react';
 import useTicket from '../../hooks/api/useTicket';
 import NotIncludesHotel from './notIncludeHotel';
 import usePayment from '../../hooks/api/usePayment';
+import TicketIsntPaid from './ticketIsntPaid'
 
 export default function HotelForm() {
     const { hotels } = useHotel();
