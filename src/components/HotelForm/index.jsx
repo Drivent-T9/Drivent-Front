@@ -17,6 +17,7 @@ export default function HotelForm() {
     console.log(payment);
 
     if (!ticket || !ticket?.TicketType.includesHotel) return <NotIncludesHotel />
+    if (ticket.status !== "PAID") return <TicketIsntPaid />
 
     return (
         <>
