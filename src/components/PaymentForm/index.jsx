@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Cards from 'react-credit-cards-2';
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
-import {Pagamento, Title, BySide, Form, Example, BigInput, MediumInput, MiniInput, Submit, Check, Confirmed, InputContainer} from './styled';
+import {Pagamento, Header, SubTitle, Bubble, TicketInfo, TicketDetail, TicketPrice, Title, BySide, Form, Example, BigInput, MediumInput, MiniInput, Submit, Check, Confirmed, InputContainer} from './styled';
 import usePayment from '../../hooks/api/usePayment';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import useTicket from '../../hooks/api/useTicket';
@@ -58,6 +58,18 @@ export default function PaymentForm() {
   if (show === true)
   {
     return (
+      <>
+      <Header>Ingresso e Pagamento</Header>
+        <SubTitle>Ingresso escolhido</SubTitle>
+        <Bubble>
+
+          <TicketInfo>
+            <TicketDetail>{ticket.TicketType.name}</TicketDetail>
+            <TicketPrice>R$ {ticket.TicketType.price}</TicketPrice>
+          </TicketInfo>
+
+        </Bubble>
+
       <Pagamento>
         <Title>
           Pagamento
@@ -124,15 +136,9 @@ export default function PaymentForm() {
             FINALIZAR PAGAMENTO
           </Submit>
         </Form>
-        <BySide>
-          <Check>
-            <BsCheckCircleFill/>
-          </Check>
-          <Confirmed>
-            Pagamento confirmado!
-          </Confirmed>
-        </BySide>
+        
       </Pagamento>
+    </>
     );
   }
   else
@@ -144,13 +150,14 @@ export default function PaymentForm() {
         </Title>
         <BySide>
           <Check>
-            {BsCheckCircleFill}
+            <BsCheckCircleFill/>
           </Check>
-          <div>
+          <Confirmed>
             Pagamento confirmado!
-          </div>
+          </Confirmed>
         </BySide>
       </Pagamento>
     );
   }
 }
+
