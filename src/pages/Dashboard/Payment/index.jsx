@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-import Ticket from '../../../components/Ticket';
+import PaymentForm from "../../../components/PaymentForm";
 
 export default function Payment() {
   return (
-    <Ticket />
+    <PaymentForm />
   );
-};
+}
