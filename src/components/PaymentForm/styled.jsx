@@ -83,6 +83,13 @@ const Submit=styled.button`
 
 const Check=styled.div`
     color: green;
+    font-size: 40px;
+    margin-right: 15px;
 `;
 
-export {Pagamento, Title, BySide, Form, Example, BigInput, MediumInput, MiniInput, Submit, Check};
+const Confirmed=styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export {Pagamento, Title, BySide, Form, Example, BigInput, MediumInput, MiniInput, Submit, Check, Confirmed};
