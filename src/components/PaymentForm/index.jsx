@@ -4,8 +4,7 @@ import 'react-credit-cards-2/dist/es/styles-compiled.css';
 import {Pagamento, Title, BySide, Form, Example, BigInput, MediumInput, MiniInput, Submit} from './styled';
 import usePayment from '../../hooks/api/usePayment';
 import {BsCheckCircleFill} from 'react-icons/bs';
-
-//import ticketId from 'slaonde';
+import useTicket from '../../hooks/api/useTicket';
 
 export default function paymentForm() {
   const [state, setState] = useState({
@@ -18,6 +17,8 @@ export default function paymentForm() {
   const [show, setShow] = useState(true);
   const [issuer, setIssuer] = useState('');
   const {processPayment}=usePayment();
+
+  const {ticketId}=useTicket();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -39,7 +40,7 @@ export default function paymentForm() {
       cvv: state.cvc 
     };
     const paymentBody={
-      //ticketId: ticketId,
+      ticketId: ticketId,
       cardData: cardData
     }
     try{
