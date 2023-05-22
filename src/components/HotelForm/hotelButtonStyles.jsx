@@ -2,8 +2,10 @@ import styled from "styled-components";
 import { Typography } from "@material-ui/core";
 
 export const StyledButton = styled.button`
-    width: 196px;
-    height: 264px;
+    min-width: 196px;
+    min-height: 264px;
+    max-width: 196px;
+    max-height: 264px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +34,7 @@ export const HotelImage = styled.div`
     height: 109px;
     border-radius: 5px;
     background-image: url(${props => props.image});
-    background-size: contain;
+    background-size: cover;
 `;
 
 export const HotelName = styled(Typography)`

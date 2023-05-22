@@ -10,7 +10,7 @@ export default function TicketIsntPaid() {
 }
 
 const PageNoHotel = styled.div`
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
