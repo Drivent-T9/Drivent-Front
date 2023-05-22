@@ -10,7 +10,7 @@ import TicketIsntPaid from './ticketIsntPaid'
 import useSaveBooking from '../../hooks/api/useSaveBooking';
 import { toast } from 'react-toastify';
 
-export default function HotelForm() {
+export default function HotelForm({setBooking}) {
     const { hotels } = useHotel();
     const { saveBooking } = useSaveBooking();
     const [selectedHotel, setSelectedHotel] = useState(null);
@@ -25,6 +25,7 @@ export default function HotelForm() {
         {
             await saveBooking({ roomId: selectedRoom });
             toast("Reserva feita com sucesso!");
+            setBooking();
         } catch (error)
         {
             console.log(error);
@@ -33,7 +34,6 @@ export default function HotelForm() {
 
     return (
         <>
-            <StyledTypography variant='h4'>Escolha de hotel e quarto</StyledTypography>
             {
                 hotels ? <HotelContainer hotels={hotels} selectedHotel={selectedHotel} setSelectedHotel={(data) => setSelectedHotel(data)} /> : null
             }
@@ -47,8 +47,3 @@ export default function HotelForm() {
         </>
     )
 }
-
-const StyledTypography = styled(Typography)`
-    font-family: 'Roboto';
-    margin-bottom: 20px!important;
-`;
