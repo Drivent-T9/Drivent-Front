@@ -1,3 +1,7 @@
+import Schedule from '../../../components/ActivitiesForm/index';
+
 export default function Activities() {
-  return 'Atividades: Em breve!';
+  return (
+    <Schedule />
+  );
 }
