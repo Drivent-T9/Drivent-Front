@@ -52,6 +52,7 @@ const Box = styled.div`
 `
 
 const EventButton = styled.button`
+    position: relative;
     text-align: left;
     padding: 12px 10px 12px 10px;
     margin-bottom: 10px;
@@ -78,6 +79,31 @@ const EventTime = styled.h2`
     color: #343434;
 `
 
+const Availability = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: 10px;
+    border-left: 1px solid #D7D7D7;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+`
+
+const Amount = styled.p`
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 11px;
+    margin-top: 5px;
+    color: #078632;
+`
+
 export {
     Header,
     Options,
@@ -88,5 +114,7 @@ export {
     Box,
     EventButton,
     EventTitle,
-    EventTime
+    EventTime,
+    Availability,
+    Amount
 }

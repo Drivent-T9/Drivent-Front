@@ -8,8 +8,11 @@ import {
     Box,
     EventButton,
     EventTitle,
-    EventTime
+    EventTime,
+    Availability,
+    Amount
 } from "./styled"
+import available from '../../assets/images/pepicons_enter.png'
 
 export default function Schedule() {
     return (
@@ -30,6 +33,11 @@ export default function Schedule() {
                         <EventButton>
                             <EventTitle>Free Fire: Bagulho irado</EventTitle>
                             <EventTime>9:00 - 10:00</EventTime>
+
+                            <Availability>
+                                <img src={available}></img>
+                                <Amount>10 vagas</Amount>
+                            </Availability>
                         </EventButton>
 
                         <EventButton>
