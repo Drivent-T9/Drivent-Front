@@ -8,9 +8,15 @@ export default function ChooseActivitie() {
   //pegar do servidor a informação de quantidade de vagas
   //colocar no servidor a inscrição e mudar o estado da atividade
   
+  /* criar no back
+    rota para pegar a capacidade da atividade se necessário
+    rota para pegar quantidade de registros
+    rota para criar um novo registro
+  */
+
   async function subscribe(){
     const body={
-        //criar body e rota no back
+        //criar body e rota no back para receber
     }
     try{
         await ;//query
@@ -25,8 +31,8 @@ export default function ChooseActivitie() {
   },[]);
 
   /* 
-   se [numero de inscrições]===[numero de vagas]
-   : se [numero de inscrições]<=[numero de vagas]
+   se registrations===capacity
+   : se registrations<=capacity
    : se numero de inscrições menor que numero de vagas
   */
   
