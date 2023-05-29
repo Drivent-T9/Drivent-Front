@@ -1,7 +1,8 @@
-import ActivitiesPage from "../../../components/Activities";
+import Schedule from '../../../components/ActivitiesForm/index';
 
 export default function Activities() {
   return (
-    <ActivitiesPage/>
+    <Schedule />
+
   );
 }
