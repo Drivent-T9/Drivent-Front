@@ -21,7 +21,8 @@ import { useEffect } from "react";
 export default function Schedule() {
     const { getActivity } = useActivity();
     const [activities, setActivities] = useState(null);
-    const [day, setDay] = useState(dayjs().add(1, 'day'))
+    const [day, setDay] = useState(dayjs().add(1, 'day'));
+    const [registeredActivities, setRegisteredActivities] = useState([]);
 
 
 
@@ -52,10 +53,11 @@ export default function Schedule() {
                                     {
                                         p.Activity.filter(a => dayjs(a.startsAt).date() === dayjs(day).date()).map(a => {
                                             return (
-                                                <EventButton key={a.id}>
+                                                <EventButton key={a.id}
+                                                    onClick={() => !registeredActivities.includes(a.id) && setRegisteredActivities([...registeredActivities, a.id])}
+                                                    className={registeredActivities.includes(a.id) ? "verde" : ""}>
                                                     <EventTitle>{a.name}</EventTitle>
-                                                    <EventTime>{dayjs(a.startsAt).hour()} - {dayjs(a.endsAt).hour()}</EventTime>
-
+                                                    <EventTime>{dayjs(a.startsAt).format('hh:00')} - {dayjs(a.endsAt).format('hh:00')}</EventTime>
                                                     <Availability>
                                                         <img src={available}></img>
                                                         <Amount>{a.capacity - a._count.Registration} vagas</Amount>
